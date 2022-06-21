@@ -26,16 +26,16 @@ Plug 'EthanJWright/bufclean.nvim'
 
 ```vim
 -- close any hidden buffers that are outside the top 2 directories of open
-lua require('bufclean.clean').close_hidden_outside_visible_context(2)
+lua require('bufclean.clean').close_hidden_outside_visible_context(2, false)
 
 -- close any files outside the top 2 directories of your currently focused
 -- buffer
-lua require('bufclean.clean').close_buffers_outside_context(2)
+lua require('bufclean.clean').close_buffers_outside_context(2, true)
 
 
 -- close any files that are within 2 shared directories of your currently
 -- focuesd buffer
-lua require('bufclean.clean').close_buffers_in_context(2)
+lua require('bufclean.clean').close_buffers_in_context(2, true)
 ```
 
 ## Examples
