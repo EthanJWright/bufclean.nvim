@@ -45,7 +45,7 @@ local function get_directory_removing_n_path_elements(parent_dir, n, include_fro
   local cwd_elements = vim.tbl_count(vim.split(vim.fn.getcwd(), '/'))
   local new_path = parent_dir_split[1]
   if include_from_cwd then
-    for i = 2, n + 1 + cwd_elements do
+    for i = 2, n +  cwd_elements do
       new_path = new_path .. '/' .. parent_dir_split[i]
     end
   else
