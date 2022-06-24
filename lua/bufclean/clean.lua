@@ -36,6 +36,9 @@ function M.close_buffers_in_parent_dir()
 end
 
 local function get_directory_removing_n_path_elements(parent_dir, n, include_from_cwd)
+  if parent_dir == nil or parent_dir == '' then
+    return nil
+  end
   if include_from_cwd == nil then
     include_from_cwd = true
   end
@@ -46,7 +49,9 @@ local function get_directory_removing_n_path_elements(parent_dir, n, include_fro
   local new_path = parent_dir_split[1]
   if include_from_cwd then
     for i = 2, n +  cwd_elements do
-      new_path = new_path .. '/' .. parent_dir_split[i]
+      if parent_dir_split[i] ~= nil then
+       new_path = new_path .. '/' .. parent_dir_split[i]
+      end
     end
   else
     for i = 2, path_length - n do
